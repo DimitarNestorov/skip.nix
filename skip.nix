@@ -1,5 +1,4 @@
 {
-  homeFolder ? "/Users/dimitar",
   stdenvNoCC,
   versionCheckHook,
 }:
@@ -26,18 +25,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
     mkdir -p $out/bin
     mv macos/skip $out/bin
-
-    cat > $out/bin/brew <<'EOF'
-    #!/bin/bash
-
-    echo "Homebrew 5.1.11"
-
-    exit 0
-    EOF
-
-    ln -s "${homeFolder}/.swiftly/bin/swiftly" $out/bin/swiftly
-
-    chmod +x $out/bin/brew
 
     runHook postInstall
   '';

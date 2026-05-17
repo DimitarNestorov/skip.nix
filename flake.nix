@@ -21,6 +21,8 @@
         in
         {
           skip = pkgs.callPackage ./skip.nix { };
+          fake-brew = pkgs.callPackage ./fake-brew.nix { };
+          swiftly-symlink = pkgs.callPackage ./swiftly-symlink.nix { };
         }
       );
     };
