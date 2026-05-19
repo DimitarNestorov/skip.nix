@@ -1,4 +1,5 @@
 {
+  lib,
   stdenvNoCC,
   versionCheckHook,
 }:
@@ -13,6 +14,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   };
 
   dontBuild = true;
+  dontFixup = true;
 
   nativeInstallCheckInputs = [
     versionCheckHook
@@ -31,5 +33,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   meta = {
     mainProgram = "skip";
+    sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
   };
 })

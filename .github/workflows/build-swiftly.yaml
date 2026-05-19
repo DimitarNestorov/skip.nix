@@ -1,0 +1,13 @@
+name: "Build Swiftly derivation"
+on:
+    pull_request:
+    push:
+jobs:
+    build-and-test:
+        runs-on: macos-26
+        steps:
+            - uses: actions/checkout@v6.0.2
+            - uses: cachix/install-nix-action@v31.10.6
+              with:
+                  github_access_token: ${{ secrets.GITHUB_TOKEN }}
+            - run: nix build .#swiftly
