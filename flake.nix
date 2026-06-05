@@ -20,6 +20,7 @@
           };
         in
         {
+          skip-bin = import ./skip-bin.nix { };
           skip = pkgs.callPackage ./skip.nix { };
           swiftly = pkgs.callPackage ./swiftly.nix { };
           fake-brew = pkgs.callPackage ./fake-brew.nix { };
