@@ -4,13 +4,14 @@
   versionCheckHook,
 }:
 
+# TODO: Optionally wrap with Gradle and Android Tools
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "skip";
   version = "1.8.14";
 
   src = import ./skip-bin.nix {
     version = finalAttrs.version;
-    sha256 = "sha256:0376zkq3vh8gw36f2d2j65q8qf5crkf7jzi0cwhkm2825j0v77cn";
+    distribution = if stdenvNoCC.hostPlatform.isDarwin then "macos" else "linux";
   };
 
   dontBuild = true;
@@ -26,7 +27,17 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook preInstall
 
     mkdir -p $out/bin
-    mv macos/skip $out/bin
+
+    ${
+      if stdenvNoCC.hostPlatform.isDarwin then
+        ''
+          mv macos/skip $out/bin
+        ''
+      else
+        ''
+          mv ${stdenvNoCC.hostPlatform.qemuArch}-swift-linux-musl/skip $out/bin
+        ''
+    }
 
     runHook postInstall
   '';

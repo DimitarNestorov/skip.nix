@@ -9,7 +9,9 @@
       ...
     }@inputs:
     let
-      forEachPlatform = nixpkgs.lib.genAttrs nixpkgs.lib.platforms.darwin;
+      forEachPlatform = nixpkgs.lib.genAttrs (
+        nixpkgs.lib.platforms.darwin ++ nixpkgs.lib.platforms.linux
+      );
     in
     {
       packages = forEachPlatform (
