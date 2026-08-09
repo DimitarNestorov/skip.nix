@@ -4,10 +4,10 @@
   versionCheckHook,
 }:
 
-# TODO: Optionally wrap with Gradle and Android Tools
+# TODO: Optionally wrap with Gradle, Zulu, and Android Tools
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "skip";
-  version = "1.8.14";
+  version = "1.9.5";
 
   src = import ./skip-bin.nix {
     version = finalAttrs.version;
