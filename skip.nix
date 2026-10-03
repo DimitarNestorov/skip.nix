@@ -7,7 +7,7 @@
 # TODO: Optionally wrap with Gradle, Zulu, and Android Tools
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "skip";
-  version = "1.9.5";
+  version = "1.9.13";
 
   src = import ./skip-bin.nix {
     version = finalAttrs.version;

@@ -1,12 +1,12 @@
 {
-  version ? "1.9.5",
+  version ? "1.9.13",
   distribution ? "macos",
   url ? "https://github.com/skiptools/skip/releases/download/${version}/skip-${distribution}.zip",
   sha256 ?
     if distribution == "macos" then
-      "sha256:0v1jx7dykdl1q7d48hjmyd1nyr4qilcd86hymmynk64zkhvxz17g"
+      "sha256:08i2qk2sw0xs0qffm26c6smlrqbvhhzrj39zhf2bsk0bq4z3d1sn"
     else
-      "sha256:1scxi81xvqvig9qc8rkcj0jccdql5wqbxhkqpid9k048bbh3zhxr",
+      "sha256:0b3378vkbmbcr1c27mh1ch9i4118ys2jnnvf05g63bcp5khqcbrz",
 }:
 builtins.fetchTarball {
   inherit sha256;
